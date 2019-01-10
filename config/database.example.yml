@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: trailblazer_api_development
+  pool: 5
+  host: localhost
+  user:
+  password:
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: trailblazer_api_test
+  pool: 25
+  host: localhost
+  user:
+  password:
