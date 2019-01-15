@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Api::V1
+module V1
   class ProjectsController < ApplicationController
     # include DeviseTokenAuth::Concerns::SetUserByToken
     # include Swagger::Blocks
@@ -19,13 +19,14 @@ module Api::V1
     end
 
     def create
-      # @project = authorize current_user.projects.new(project_params)
-      # if @project.save!
-      #   render json: serialized_object(@project), status: 201
+      # @projects = authorize current_user.projects.new(project_params)
+      # if @projects.save!
+      #   render json: serialized_object(@projects), status: 201
       # else
-      #   render json: @project.errors.messages, status: 422
+      #   render json: @projects.errors.messages, status: 422
       # end
-      Project::Create.(params)
+      # Project::Create.(params[:projects])
+      Project::Create.()
     end
 
     def update
@@ -44,14 +45,5 @@ module Api::V1
       end
     end
 
-    private
-
-    def project_params
-      params.require(:project).permit(:name)
-    end
-
-    def set_project
-      @project = authorize Project.find(params[:id])
-    end
   end
 end
