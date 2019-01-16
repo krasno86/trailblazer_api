@@ -10,13 +10,13 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'dry-validation', '~> 0.12.2'
 gem 'reform', '~> 2.3.0.rc1'
-# gem "trailblazer", ">= 2.0.3"
 gem 'trailblazer', '~> 2.1.0.rc1'
-# gem "trailblazer-rails"
 gem 'trailblazer-rails', '~> 2.1', '>= 2.1.7'
 gem "trailblazer-cells"
 gem 'reform-rails', '~> 0.2.0.rc2'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise-jwt'
+gem 'devise'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -24,7 +24,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # gem 'rspec', '~> 3.4'
   gem 'rspec-rails', '~> 3.8'
 end
 
