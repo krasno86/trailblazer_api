@@ -17,6 +17,7 @@ gem 'trailblazer-rails', '~> 2.1', '>= 2.1.7'
 gem "trailblazer-cells"
 gem 'reform-rails', '~> 0.2.0.rc2'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'jwt'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
