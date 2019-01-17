@@ -7,19 +7,11 @@ module V1::Users::Sessions::Operation
     step V1::Lib::Step::Auth::CreateToken
     step :renderer_options
 
-    step V1::Lib::Step::Auth::CheckUserVerification
-    fail :user_not_verified, fail_fast: true
-
-    def invalid_credentials(ctx, **)
-      V1::Lib::Service::AddCustomError.(ctx, :unauthorized, credentials: I18n.t('errors.invalid_credentials'))
-    end
-
-    def user_not_verified(ctx, **)
-      V1::Lib::Service::AddCustomError.(ctx, :unauthorized, user_account: I18n.t('errors.user_not_verified'))
+    def invalid_credentials
+      render json: { errors: "Not authenticated" }, status: :unauthorized
     end
 
     def renderer_options(ctx, tokens:, **)
-      ctx[:renderer_options] = { class: { User: V1::Users::Sessions::Representer::Create }, meta: { jwt: tokens } }
     end
   end
 end

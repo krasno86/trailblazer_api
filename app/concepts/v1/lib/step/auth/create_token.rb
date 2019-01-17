@@ -5,6 +5,7 @@ module V1::Lib::Step::Auth
       user = ctx[:model]
       payload = { user_id: user.id }
       jwt = Auth.issue({user: user.id})
+      render json: {jwt: jwt}
     end
   end
 end
