@@ -4,8 +4,10 @@ module V1::Lib::Step::Auth
     def self.call(ctx, **)
       user = ctx[:model]
       payload = { user_id: user.id }
-      jwt = Auth.issue({user: user.id})
-      render json: {jwt: jwt}
+      session = JWTSessions::Session.new(payload: payload,
+                                         refresh_by_access_allowed: true,
+                                         namespace: "user_#{user.id}")
+      ctx[:tokens] = { access: session.login[:access] }
     end
   end
 end
